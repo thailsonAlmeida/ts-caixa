@@ -1,6 +1,6 @@
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./Home";
-import Orders from "./Orders";
+import Deposits from "./Deposits";
 import Navbar from "./Navbar";
 
 function Routes() {
@@ -8,7 +8,7 @@ function Routes() {
         <BrowserRouter>
             <Navbar />
             <Route component={ Home } path="/" exact />
-            <Route component={ Orders } path="/orders" exact />
+            <Route component={ Deposits } path="/depositos" exact />
         </ BrowserRouter>
     )
 }
