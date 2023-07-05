@@ -1,0 +1,13 @@
+package com.caixa.demo.dto;
+
+public class DepositDTO {
+	
+	private Long id;
+	private Long agency;
+	private String account;
+	private Long bank;
+	private Double balance;
+	
+	private List<PhysicalDTO> physicals = new ArrayList<>();
+
+}

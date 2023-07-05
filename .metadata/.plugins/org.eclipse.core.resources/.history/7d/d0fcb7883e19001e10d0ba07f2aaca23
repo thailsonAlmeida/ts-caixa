@@ -1,0 +1,16 @@
+package com.caixa.demo.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DepositDTO {
+	
+	private Long id;
+	private Long agency;
+	private String account;
+	private Long bank;
+	private Double balance;
+	
+	private List<PhysicalDTO> physicals = new ArrayList<>();
+
+}

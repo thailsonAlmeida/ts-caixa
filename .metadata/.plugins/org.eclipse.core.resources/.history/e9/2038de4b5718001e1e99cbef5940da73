@@ -1,0 +1,5 @@
+package com.caixa.demo.repositories;
+
+public class PhysicalRepositories {
+
+}

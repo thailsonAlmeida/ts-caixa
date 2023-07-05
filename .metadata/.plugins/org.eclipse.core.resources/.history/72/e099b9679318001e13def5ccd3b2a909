@@ -1,0 +1,100 @@
+package com.caixa.demo.entities;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="tb_person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Person implements Serializable {
+	static final long serialVersionUID = 1L;	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	String namePerson;
+	String addressPerson;
+	String phonePerson;
+	double icomePerson;
+	boolean situationPerson;
+	boolean typePerson;	
+	
+	public String getNamePerson() {
+		return namePerson;
+	}
+
+	public void setNamePerson(String namePerson) {
+		this.namePerson = namePerson;
+	}
+
+	public String getAddressPerson() {
+		return addressPerson;
+	}
+
+	public void setAddressPerson(String addressPerson) {
+		this.addressPerson = addressPerson;
+	}
+
+	public String getPhonePerson() {
+		return phonePerson;
+	}
+
+	public void setPhonePerson(String phonePerson) {
+		this.phonePerson = phonePerson;
+	}
+
+	public double getIcomePerson() {
+		return icomePerson;
+	}
+
+	public void setIcomePerson(double icomePerson) {
+		this.icomePerson = icomePerson;
+	}
+
+	public boolean isSituationPerson() {
+		return situationPerson;
+	}
+
+	public void setSituationPerson(boolean situationPerson) {
+		this.situationPerson = situationPerson;
+	}
+
+	public boolean isTypePerson() {
+		return typePerson;
+	}
+
+	public void setTypePerson(boolean typePerson) {
+		this.typePerson = typePerson;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(namePerson);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(namePerson, other.namePerson);
+	}
+	
+	
+	
+}

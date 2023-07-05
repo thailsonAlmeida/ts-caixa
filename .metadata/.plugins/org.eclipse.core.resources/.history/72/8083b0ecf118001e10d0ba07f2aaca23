@@ -1,0 +1,1 @@
+INSERT INTO tb_person(income_person, situation_person, type_person, address_person, cpf, name_person) VALUES ( 4000.00, true, true, 'Rua Moradia, nº20', '401.894.069-88', 'Augusto Santos');

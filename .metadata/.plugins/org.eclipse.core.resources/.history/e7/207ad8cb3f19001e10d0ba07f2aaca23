@@ -1,0 +1,46 @@
+package com.caixa.demo.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import com.caixa.demo.entities.Deposit;
+import com.caixa.demo.entities.Physical;
+
+public class DepositDTO {
+	
+	private Long id;
+	private Long agency;
+	private String account;
+	private Long bank;
+	private Double balance;
+	
+	private List<PhysicalDTO> physicalsPerson = new ArrayList<>();
+	
+	public DepositDTO() {}
+
+	public DepositDTO(Long id, Long agency, String account, Long bank, Double balance) {
+		super();
+		this.id = id;
+		this.agency = agency;
+		this.account = account;
+		this.bank = bank;
+		this.balance = balance;
+	}
+	
+	public DepositDTO(Deposit entity) {
+		this.id = entity.getId();
+		this.agency = entity.getAgency();
+		this.account = entity.getAccount();
+		this.bank = entity.getBank();
+		this.balance = entity.getBalance();
+	}
+	
+	public DepositDTO(Deposit entity, Set<Physical> physicals) {
+		this(entity);
+		physicals.forEach(physic -> this.physicalsPerson.add(new PhysicalDTO(physic)));
+	}
+	
+	
+
+}

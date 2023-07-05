@@ -1,0 +1,90 @@
+package com.caixa.demo.entities;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="tb_person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Person implements Serializable {
+	static final long serialVersionUID = 1L;	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+	
+	String namePerson;
+	String addressPerson;
+	double incomePerson;
+	boolean situationPerson;
+	
+	public String getNamePerson() {
+		return namePerson;
+	}
+
+	public void setNamePerson(String namePerson) {
+		this.namePerson = namePerson;
+	}
+
+	public String getAddressPerson() {
+		return addressPerson;
+	}
+
+	public void setAddressPerson(String addressPerson) {
+		this.addressPerson = addressPerson;
+	}
+
+	public double getIcomePerson() {
+		return incomePerson;
+	}
+
+	public void setIcomePerson(double icomePerson) {
+		this.incomePerson = icomePerson;
+	}
+
+	public boolean isSituationPerson() {
+		return situationPerson;
+	}
+
+	public void setSituationPerson(boolean situationPerson) {
+		this.situationPerson = situationPerson;
+	}	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	
+	
+	
+	
+}

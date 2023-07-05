@@ -1,0 +1,5 @@
+package com.caixa.demo.dto;
+
+public class DepositDTO {
+
+}

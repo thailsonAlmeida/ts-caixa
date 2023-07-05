@@ -1,0 +1,26 @@
+package com.caixa.demo.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.caixa.demo.dto.PhysicalDTO;
+import com.caixa.demo.entities.Physical;
+import com.caixa.demo.repositories.PhysicalRepository;
+
+
+
+@Service
+public class PhysicalService {
+	
+	@Autowired
+	private PhysicalRepository repository;	
+	
+	@Transactional(readOnly = true)
+	public List<PhysicalDTO> findAll(){
+		List<Physical> list = repository.findAll();
+	}
+
+}

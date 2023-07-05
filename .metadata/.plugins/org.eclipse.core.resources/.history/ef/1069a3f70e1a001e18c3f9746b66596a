@@ -1,0 +1,16 @@
+package com.caixa.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.caixa.demo.entities.Physical;
+
+@SpringBootApplication
+public class CaixaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CaixaApplication.class, args);
+		personPhysical = new Physical();
+	}
+
+}

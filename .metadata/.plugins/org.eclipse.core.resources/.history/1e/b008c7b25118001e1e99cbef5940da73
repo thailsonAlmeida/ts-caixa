@@ -1,0 +1,20 @@
+package com.caixa.demo.resource;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.caixa.demo.entities.Physical;
+
+@RestController
+@RequestMapping(value="fisicas")
+public class PhysicalResource {
+	
+	ResponseEntity<List<Physical>> findAll(){
+		List<Physical> listPersonPhysics = new ArrayList<>();
+	}
+
+}

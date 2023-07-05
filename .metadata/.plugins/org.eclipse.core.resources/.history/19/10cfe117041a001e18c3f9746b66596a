@@ -1,0 +1,17 @@
+package com.caixa.demo.patterns;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.caixa.demo.entities.Deposit;
+
+interface DepositObeserver {
+	
+	List<Deposit> notifyMeBalance = new ArrayList<>();
+	
+	
+	public void notifyMeBalance(Deposit balance) {
+		
+	}
+
+}

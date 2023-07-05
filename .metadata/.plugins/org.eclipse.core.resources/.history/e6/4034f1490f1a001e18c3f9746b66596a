@@ -1,0 +1,18 @@
+package com.caixa.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.caixa.demo.entities.Physical;
+import com.caixa.demo.patterns.DepositPublisherObserver;
+
+@SpringBootApplication
+public class CaixaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CaixaApplication.class, args);
+		Physical personPhysical = new Physical();
+		DepositPublisherObserver depositPublisherObserver = new DepositPublisherObserver();
+	}
+
+}

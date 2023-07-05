@@ -1,0 +1,28 @@
+package com.caixa.demo.resource;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.caixa.demo.dto.PhysicalDTO;
+import com.caixa.demo.entities.Physical;
+import com.caixa.demo.services.PhysicalService;
+
+@RestController
+@RequestMapping(value="/fisicas")
+public class PhysicalResource {
+	
+	@Autowired
+	private PhysicalService service;
+	
+	@GetMapping
+	ResponseEntity<List<PhysicalDTO>> findAll(){
+		List<PhysicalDTO> listPersonPhysics = service.findAll();
+		return ResponseEntity.ok().body(listPersonPhysics);
+	}
+
+}

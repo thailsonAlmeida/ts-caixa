@@ -1,0 +1,5 @@
+package com.caixa.demo.resource;
+
+public class PhysicalResource {
+
+}

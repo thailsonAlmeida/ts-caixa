@@ -1,0 +1,37 @@
+package com.caixa.demo.resource;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.caixa.demo.entities.Juridic;
+
+@RestController
+@RequestMapping(value = "/juridicas") public class JuridicResource {
+	
+	@GetMapping
+	public ResponseEntity<List<Juridic>> fidAll(){
+		List<Juridic> listJuridic = new ArrayList<>();
+		listJuridic.add(new Juridic(
+				"Ferragem ltda",
+				"Av Trabalhador, nº15",
+				8506.00,
+				true,
+				true,
+				"12.345.678/0001-01")
+				);
+		listJuridic.add(new Juridic(
+				"Madereira ltda",
+				"Av Trabalhador, nº15",
+				8506.00,
+				true,
+				true,
+				"12.345.678/0001-01")
+				);
+		return ResponseEntity.ok().body(listJuridic);
+	}
+}

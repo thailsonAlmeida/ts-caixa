@@ -1,0 +1,9 @@
+package com.caixa.demo.patterns;
+
+import java.util.ArrayList;
+
+public class DepositPublisherObserver {
+	
+	List<DepositSubscriberObeserver> notifyMeBalance = new ArrayList<>();
+
+}

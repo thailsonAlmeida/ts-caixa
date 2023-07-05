@@ -1,0 +1,6 @@
+INSERT INTO tb_person(income_person, p_type, situation_person, type_person, address_person, registro, name_person) VALUES ( 4000.00, true, true, 'fisica' , 'Rua Moradia, nº20', '401.894.069-88', 'Augusto Santos');
+INSERT INTO tb_person(income_person, p_type, situation_person, type_person, address_person, registro, name_person) VALUES ( 8655.16, true, true, 'fisica' , 'Rua Moradia, nº26', '301.394.069-88', 'Thais Fragoso');
+INSERT INTO tb_person(income_person, p_type, situation_person, type_person, address_person, registro, name_person) VALUES ( 4654.15, true, true, 'fisica' , 'Rua Moradia, nº200', '601.594.069-88', 'Camila Freitas');
+INSERT INTO tb_person(income_person, p_type, situation_person, type_person, address_person, registro, name_person) VALUES ( 1206.17, true, true, 'fisica' , 'Rua Moradia, nº364', '301.494.069-88', 'Alan Cardoso');
+INSERT INTO tb_person(income_person, p_type, situation_person, type_person, address_person, registro, name_person) VALUES ( 800.16, true, true, 'fisica' , 'Rua Moradia, nº33', '201.864.069-88', 'Jane Lima');
+INSERT INTO tb_person(income_person, p_type, situation_person, type_person, address_person, registro, name_person) VALUES ( 10654.26, true, true, 'fisica' , 'Rua Moradia, nº23', '401.794.069-88', 'Milena Matos');

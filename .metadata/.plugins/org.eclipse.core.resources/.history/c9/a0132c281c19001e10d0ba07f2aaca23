@@ -1,0 +1,5 @@
+package com.caixa.demo.services.exceptions;
+
+public class ResouceNotFoundException {
+
+}

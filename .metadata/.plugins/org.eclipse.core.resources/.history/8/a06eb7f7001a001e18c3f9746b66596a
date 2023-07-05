@@ -1,0 +1,12 @@
+package com.caixa.demo.patterns;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.caixa.demo.entities.Deposit;
+
+public class NotifyObserver {
+	
+	List<Deposit> notifyMeDeposit = new ArrayList<>();
+
+}

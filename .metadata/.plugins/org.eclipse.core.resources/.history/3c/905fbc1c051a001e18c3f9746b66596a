@@ -1,0 +1,11 @@
+package com.caixa.demo.patterns;
+
+import com.caixa.demo.entities.Deposit;
+
+interface DepositObeserver {
+	
+		
+	
+	public void notifyMeBalance(Deposit balance);
+
+}

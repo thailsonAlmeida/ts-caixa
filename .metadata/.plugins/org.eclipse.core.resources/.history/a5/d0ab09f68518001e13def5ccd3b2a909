@@ -1,0 +1,9 @@
+package com.caixa.demo.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.caixa.demo.entities.Physical;
+
+public interface PhysicalRepository extends JpaRepository<Physical, Long> {
+
+}

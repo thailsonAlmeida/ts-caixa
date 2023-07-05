@@ -1,0 +1,68 @@
+package com.caixa.demo.entities;
+
+import java.util.Objects;
+
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="tb_person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="tipo_pessoa", discriminariorType= DiscriminatorType.INTEGER)
+public class Physical extends Person {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String cpf;	
+	
+	public Physical() {	}
+
+	
+	public Physical(String namePerson, String addressPerson, double icomePerson,
+			boolean situationPerson, boolean typePerson, String cpf) {
+		super();
+		this.namePerson = namePerson;
+		this.addressPerson = addressPerson;
+		this.icomePerson = icomePerson;
+		this.situationPerson = situationPerson;
+		this.typePerson = typePerson;
+		this.cpf = cpf;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpf);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Physical other = (Physical) obj;
+		return Objects.equals(cpf, other.cpf);
+	}
+	
+	
+
+}

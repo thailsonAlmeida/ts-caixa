@@ -1,0 +1,7 @@
+package com.caixa.demo.patterns;
+
+interface Observer {
+	
+	void notify(Deposit deposit);
+
+}

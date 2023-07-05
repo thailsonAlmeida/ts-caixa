@@ -1,0 +1,12 @@
+package com.caixa.demo.dto;
+
+public class PhysicalDTO {
+	
+	private Long id;	
+	String namePerson;
+	String addressPerson;
+	double incomePerson;
+	boolean situationPerson;
+	private String cpf;
+
+}

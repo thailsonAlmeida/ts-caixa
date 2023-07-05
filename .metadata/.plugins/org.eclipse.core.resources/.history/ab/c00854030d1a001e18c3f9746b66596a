@@ -1,0 +1,5 @@
+package com.caixa.demo.entities;
+
+public interface DepositSubscriberObserver {
+
+}

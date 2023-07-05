@@ -1,0 +1,5 @@
+package com.caixa.demo.resource.exceptios;
+
+public class StandardError {
+
+}

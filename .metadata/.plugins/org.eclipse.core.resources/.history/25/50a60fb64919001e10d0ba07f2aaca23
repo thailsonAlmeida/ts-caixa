@@ -1,0 +1,97 @@
+package com.caixa.demo.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.caixa.demo.dto.DepositDTO;
+import com.caixa.demo.dto.PhysicalDTO;
+import com.caixa.demo.entities.Deposit;
+import com.caixa.demo.entities.Physical;
+import com.caixa.demo.repositories.DepositRepository;
+import com.caixa.demo.repositories.PhysicalRepository;
+import com.caixa.demo.services.exceptions.DataBaseException;
+import com.caixa.demo.services.exceptions.ResourceNotFoundException;
+
+import jakarta.persistence.EntityNotFoundException;
+
+
+
+@Service
+public class DepositService {
+	
+	@Autowired
+	private DepositRepository repository;
+	
+	@Autowired
+	private PhysicalRepository physicalRepository;
+	
+	@Transactional(readOnly = true)
+	public Page<DepositDTO> findAllPaged(PageRequest pageRequest){
+		Page<Deposit> list = repository.findAll(pageRequest);
+		return list.map(x -> new DepositDTO(x));
+	}
+
+	@Transactional(readOnly = true)
+	public DepositDTO findById(long id) {
+		Optional<Deposit> obj = repository.findById(id);
+		Deposit entity = obj.get();
+		return new DepositDTO(entity, entity.getAccounts());
+	}
+
+	@Transactional
+	public DepositDTO insert(DepositDTO dto) {
+		Deposit entity = new Deposit();
+		copyDtoEntity(dto, entity);
+		
+		entity = repository.save(entity);
+		
+		return new DepositDTO(entity);
+	}	
+
+	@Transactional
+	public DepositDTO update(Long id, DepositDTO dto) {
+		try {
+			Deposit entity = repository.getReferenceById(id);
+			copyDtoEntity(dto, entity);
+			entity = repository.save(entity);
+			
+			return new DepositDTO(entity);
+		}
+		catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Id not found" + id);
+		}
+	}
+
+	public void delete(Long id) {
+		try {
+			repository.deleteById(id);
+		} 
+		catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("Id not found" + id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataBaseException("Integrity violatio");
+		}
+	}
+	
+	private void copyDtoEntity(DepositDTO dto, Deposit entity) {
+		entity.setAccount(dto.getAccount());
+		entity.setAgency(dto.getAgency());
+		entity.setBalance(dto.getBalance());
+		entity.setBank(dto.getBank());
+		
+		entity.getAccounts().clear();
+		for (PhysicalDTO physDTO : dto.getPhysicalsPerson()) {
+			Physical physical = physicalRepository.getReferenceById(physDTO.getId());
+			entity.getAccounts().add(physical);
+		}
+		
+	}
+}

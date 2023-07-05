@@ -1,0 +1,12 @@
+package com.caixa.demo.patterns;
+
+import com.caixa.demo.entities.Deposit;
+
+interface DepositSubscriberObeserver {
+	
+	DepositPublisherObserver depositPublisherObserver = new DepositPublisherObserver();
+	
+	public void update(Deposit balance);	
+	
+
+}
